@@ -1,0 +1,50 @@
+.sidebar {
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  padding: 15px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu-item {
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.menu-item:hover {
+  background-color: #575757;
+}
+
+.dropdown {
+  list-style-type: none;
+  padding-left: 20px;
+  margin-top: 5px;
+  display: none;
+  visibility: visible;
+}
+
+.dropdown-item {
+  color: white;
+  padding: 5px 0;
+}
+
+.dropdown-item:hover {
+  background-color: dimgrey;
+}
+#link1 {
+  color: white;
+  text-decoration-line: none;
+}
+
+#link2 {
+  color: white;
+  text-decoration-line: none;
+}

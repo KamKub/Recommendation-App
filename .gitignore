@@ -1,0 +1,5 @@
+/backend/venv
+backend/src/__pycache__
+backend/src/movie_database
+backend/src/movie_dataset.csv
+frontend.iml

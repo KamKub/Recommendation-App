@@ -1,0 +1,10 @@
+<div class="content">
+    <app-movie-item
+    *ngFor="let movieItem of moviePosters"
+    [moviePoster]="movieItem"
+    ></app-movie-item>
+</div>
+<div class="pagination">
+  <a (click)="onPreviousPage()" [ngStyle]="{'display': getPageNumber() > 0 ? 'flex' : 'none'}">&laquo; previous page</a>
+  <a (click)="onNextPage()" [ngStyle]="{'display': this.moviePosters.length > 0 ? 'flex' : 'none'}">next page &raquo;</a>
+</div>

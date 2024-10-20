@@ -1,0 +1,17 @@
+<a
+  style="cursor: pointer"
+  [routerLink]="[moviePoster.id]"
+  routerLinkActive="active"
+  class="list-group-item clearfix">
+  <div class="container">
+    <span>
+      <img
+        src="{{'https://image.tmdb.org/t/p/w500'+moviePoster.poster_path}}"
+        class="img-responsive"
+        style="max-height: 400px; max-width: 100%">
+    </span>
+    <div class="overlay">
+      <p>{{moviePoster.name}}</p>
+    </div>
+  </div>
+</a>

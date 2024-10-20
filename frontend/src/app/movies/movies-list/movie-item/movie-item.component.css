@@ -1,0 +1,33 @@
+.container {
+  position: relative;
+  display: inline-block;
+}
+
+.container img {
+  transition: filter 0.3s ease;
+  border: 2px solid #575757;
+}
+
+.container:hover img {
+  filter: grayscale(100%);
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  color: white;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.container:hover .overlay {
+  opacity: 1;
+}
+
+.overlay p {
+  font-size: 18px;
+}

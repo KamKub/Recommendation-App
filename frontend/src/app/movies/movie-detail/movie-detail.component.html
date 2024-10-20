@@ -1,0 +1,45 @@
+<div class="modal-overlay" routerLink="/movies">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-button" routerLink="/movies">&#10005;</button>
+    <div class="scrollable-content">
+      <div class="star-rating" *ngIf="(movie?.vote_average ?? 0)">
+        <span
+          *ngFor="let star of stars; let i = index"
+          class="star"
+          [ngClass]="{
+                'filled': i < Math.floor((movie?.vote_average ?? 0))
+              }">&#9733;
+        </span>
+        <p class="vote-count" *ngIf="(movie?.vote_count ?? 0)">on {{movie?.vote_count}} votes</p>
+      </div>
+      <p>Name: {{movie?.name}}</p>
+      <p>Overview: {{movie?.overview}}</p>
+      <p>Series status: {{movie?.status}}</p>
+      <hr>
+      <p *ngIf="(movie?.number_of_seasons ?? 0)">Number of seasons: {{movie?.number_of_seasons}}</p>
+      <p *ngIf="(movie?.number_of_episodes ?? 0)">Number of episodes: {{movie?.number_of_episodes}}</p>
+      <p *ngIf="(movie?.episode_run_time ?? 0)">Episode run time: {{movie?.episode_run_time}} minutes</p>
+      <hr>
+      <p>Original series name: {{movie?.original_name}}</p>
+      <p>Original language: {{movie?.spoken_languages}}</p>
+      <hr>
+      <p>Genres: {{movie?.genres}}</p>
+      <p>First air date: {{movie?.first_air_date}}</p>
+      <p *ngIf="(movie?.popularity ?? 0)">Popularity: {{movie?.popularity}}</p>
+      <hr>
+      <p><a href="{{movie?.homepage}}">Homepage</a></p>
+      <br>
+    </div>
+  </div>
+</div>
+<!--      <p>adult: {{movie?.adult}}</p>-->
+<!--      <p>created_by: {{movie?.created_by}}</p>-->
+<!--      <p>last_air_date: {{movie?.last_air_date}}</p>-->
+<!--      <p>Origin country: {{movie?.origin_country}}</p>-->
+<!--      <p>production_countries: {{movie?.production_countries}}</p>-->
+<!--      <p>backdrop_path: {{movie?.backdrop_path}}</p>-->
+<!--      <p>id: {{movie?.id}}</p>-->
+<!--      <p>in_production: {{movie?.in_production}}</p>-->
+<!--      <p>tagline: {{movie?.tagline}}</p>-->
+<!--      <p>type: {{movie?.type}}</p>-->
+
