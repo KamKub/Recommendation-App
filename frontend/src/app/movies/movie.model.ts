@@ -28,6 +28,7 @@ export class Movie{
   public type: string
   public vote_average: number
   public vote_count: number
+  
   constructor(id: number,spoken_languages: string, adult: boolean, backdrop_path: string, created_by: string, episode_run_time: number, first_air_date: string, genres: string, homepage: string, in_production: boolean, languages: string, last_air_date: string, name: string, networks: string, number_of_episodes: number, number_of_seasons: number, origin_country: string, original_language: string, original_name: string, overview: string, popularity: number, poster_path: string, production_companies: string, production_countries: string, status: string, tagline: string, type: string, vote_average: number, vote_count: number) {
     this.id = id;
     this.spoken_languages = spoken_languages;
