@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import {catchError, map, tap, throwError} from "rxjs";
+import {map, tap} from "rxjs";
 import {MoviePoster} from "../movies/movie-poster.model";
 import {Movie} from "../movies/movie.model";
 

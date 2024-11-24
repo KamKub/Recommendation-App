@@ -1,5 +1,5 @@
 from database import get_or_create_collection
-#from chatbot import query_llm
+from chatbot import chatbot
 from flask import request, abort, jsonify
 import json
 import re
@@ -57,16 +57,16 @@ def get_movie_posters_and_id():
         include=["metadatas"]
     )
     output = {id_: {"poster_path": metadata['poster_path'], "title": metadata['name']} for id_, metadata in zip(results["ids"], results["metadatas"])}
-    return output
+    return json.dumps(output)
 
 """
 comment
 """
-def get_rec_from_llm():
+def get_res_from_llm():
     query = request.get_json().get('query')
-    print(query)
     if not query:
         abort(400, description="Missing query value in the request.")
-
-    #answer_body = query_llm()
-    return 0#answer_body
+    answer_body = chatbot.invoke_llm(query)
+    print(answer_body)
+    response_dict = {"response": answer_body[answer_body.find('Answer:') + len('Answer:'):]}
+    return json.dumps(response_dict)

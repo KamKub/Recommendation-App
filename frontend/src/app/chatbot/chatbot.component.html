@@ -1,1 +1,19 @@
-<p>chatbot works?</p>
+<div class="chat-container">
+  <div class="chat-messages">
+    <div 
+      class="message" 
+      *ngFor="let message of messagesList; let i = index" 
+      [innerHTML] = "formatText(message)"
+      [ngClass]="{ 'sender': i % 2 === 1, 'receiver': i % 2 === 0 }">
+      <div >{{ message }}</div>
+    </div>
+  </div>
+  <div class="input">
+    <input 
+      [(ngModel)]="inputText" 
+      (keydown.enter)="sendQuery()" 
+      placeholder="Ask me about a recommendation..."
+      [disabled]="isProcessing" />
+    <button (click)="sendQuery()" [disabled]="isProcessing">Send</button>
+  </div>
+</div>
