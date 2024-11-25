@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { ChatbotService } from '../shared/chatbot.service';
+import { LoadingSpinnerComponent } from '../shared/loading-spinner/loading-spinner.component';
 
 @Component({
 	selector: 'app-chatbot',
@@ -13,6 +14,7 @@ import { ChatbotService } from '../shared/chatbot.service';
 			NgClass,
 			RouterLink,
 			RouterLinkActive,
+			LoadingSpinnerComponent,
 			FormsModule,
 	],
 	templateUrl: './chatbot.component.html',

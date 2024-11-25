@@ -8,6 +8,7 @@
       <div >{{ message }}</div>
     </div>
   </div>
+  <loading-spinner *ngIf="isProcessing"></loading-spinner>
   <div class="input">
     <input 
       [(ngModel)]="inputText" 

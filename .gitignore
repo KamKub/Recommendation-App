@@ -3,6 +3,8 @@ backend/venv
 backend/src/__pycache__
 backend/src/movie_database
 backend/src/movie_dataset.csv
+backend/src/tv_series_database
+backend/src/dataset.csv
 frontend.iml
 .vscode
 

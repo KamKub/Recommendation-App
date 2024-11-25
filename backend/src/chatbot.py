@@ -1,7 +1,6 @@
 import transformers
 import torch
 from transformers import AutoTokenizer
-from torch import bfloat16
 from time import time
 from langchain_community.vectorstores import Chroma
 from langchain.chains import RetrievalQA
