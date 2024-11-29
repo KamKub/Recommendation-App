@@ -3,13 +3,7 @@
     <button class="close-button" routerLink="/movies">&#10005;</button>
     <div class="scrollable-content">
       <div class="star-rating" *ngIf="(movie?.vote_average ?? 0)">
-        <span
-          *ngFor="let star of stars; let i = index"
-          class="star"
-          [ngClass]="{
-                'filled': i < Math.floor((movie?.vote_average ?? 0))
-              }">&#9733;
-        </span>
+        <div class="star filled">&#9733; {{movie?.vote_average}}</div>
         <p class="vote-count" *ngIf="(movie?.vote_count ?? 0)">on {{movie?.vote_count}} votes</p>
       </div>
       <p>Name: {{movie?.name}}</p>

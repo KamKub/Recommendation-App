@@ -7,24 +7,10 @@ import re
 """
 comment
 """
-def hello_world():
-    if "query" not in request.json.keys():
-        abort(400, description="Missing query in the request.")
-
-    query_text = request.json["query"]
-    collection = get_or_create_collection()
-    results = collection.query(query_texts=[query_text], n_results=1)
-
-    return json.dumps(results["documents"][0], indent=4)
-
-"""
-comment
-check if movie with that id exists !
-"""
 def get_movie_metadata_by_id():
     number = request.args.get('id')
     id = str("id" + number)
-    collection = get_or_create_collection()
+    collection = get_or_create_collection("tv_series_rag", "rag")
     results = collection.get(
         ids=[id],
         include=["metadatas"]
@@ -51,7 +37,7 @@ def get_movie_posters_and_id():
     if not page.isdigit():
         abort(400, description="Page must be a number")
 
-    collection = get_or_create_collection()
+    collection = get_or_create_collection("tv_series_rag", "rag")
     results = collection.get(
         ids=[f"id{int(page)*50 + x}" for x in range(0,50)],
         include=["metadatas"]
@@ -66,6 +52,7 @@ def get_res_from_llm():
     query = request.get_json().get('query')
     if not query:
         abort(400, description="Missing query value in the request.")
+    get_or_create_collection("tv_series_rag", "rag") 
     answer_body = chatbot.invoke_llm(query)
     print(answer_body)
     response_dict = {"response": answer_body[answer_body.find('Answer:') + len('Answer:'):]}

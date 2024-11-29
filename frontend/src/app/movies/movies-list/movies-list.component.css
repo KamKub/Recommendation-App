@@ -23,3 +23,6 @@
   background-color: grey;
 }
 
+a {
+  cursor: pointer;
+}

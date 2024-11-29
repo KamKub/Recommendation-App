@@ -46,11 +46,11 @@ class Chatbot:
     time_end = time()
 
     embedding_func = HuggingFaceEmbeddings(model_name = "sentence-transformers/all-MiniLM-L6-v2")
-    chroma_client = chromadb.PersistentClient(path="movie_database")
+    chroma_client = chromadb.PersistentClient(path="tv_series_database")
 
     vector_store_from_client = Chroma(
         client=chroma_client,
-        collection_name="movies",
+        collection_name="tv_series_rag",
         embedding_function=embedding_func,
     )
 

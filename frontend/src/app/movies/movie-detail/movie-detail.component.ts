@@ -19,7 +19,6 @@ import {NgClass, NgForOf, NgIf} from "@angular/common";
 export class MovieDetailComponent implements OnInit, OnDestroy{
   movie: Movie | undefined
   id!: number
-  stars: number[] = [0,0,0,0,0,0,0,0,0,0];
 
   constructor(private movieService: MoviesService, private route: ActivatedRoute , private router: Router) {
   }
@@ -51,6 +50,4 @@ export class MovieDetailComponent implements OnInit, OnDestroy{
       }
     });
   }
-
-  protected readonly Math = Math;
 }
