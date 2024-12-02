@@ -5,6 +5,8 @@ backend/src/movie_database
 backend/src/movie_dataset.csv
 backend/src/tv_series_database
 backend/src/dataset.csv
+backend/src/dataset_1000.csv
+backend/src/ratings.csv
 frontend.iml
 .vscode
 
