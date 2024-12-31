@@ -13,7 +13,7 @@ interface PosterDetails {
 export class DataStorageService{
   constructor(private http: HttpClient) {}
   getPostersQuery(pageNumber: number) {
-    return this.http.get<{ [key: string]: PosterDetails }>('api/movies', {
+    return this.http.get<{ [key: string]: PosterDetails }>('api/tv_series', {
       params: {
         page: pageNumber
       }
@@ -33,7 +33,7 @@ export class DataStorageService{
   }
 
   getMovieDetails(movieId: number) {
-    return this.http.get<Movie>('api/movie_details', {
+    return this.http.get<Movie>('api/tv_series_details', {
       params: {
         id: movieId
       }

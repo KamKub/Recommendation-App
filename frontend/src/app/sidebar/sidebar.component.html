@@ -1,20 +1,18 @@
 <div class="sidebar">
   <ul class="menu">
     <li class="menu-item" routerLinkActive="active" routerLink="/">
-      <a id="link">Movie recommendation</a>
+      <a id="link">TV series recommendation</a>
     </li>
     <li class="menu-item" (click)="this.dropdownVisible = !this.dropdownVisible">
-      Movies
+      TV series
       <ul [ngStyle]="{'display': dropdownVisible? 'block' : 'none'}" class="dropdown">
-        <li class="dropdown-item">Search</li>
         <li class="dropdown-item" routerLinkActive="active" routerLink="/movies">
-          <a id="link">Movie list</a>
+          <a id="link">TV series list</a>
         </li>
         <li class="dropdown-item" routerLinkActive="active" routerLink="/chatbot">
           <a id="link">Ask chatbot</a>
         </li>
       </ul>
     </li>
-    <li class="menu-item">About</li>
   </ul>
 </div>

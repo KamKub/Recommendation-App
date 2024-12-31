@@ -8,10 +8,10 @@ import re
 """
 comment
 """
-def get_movie_metadata_by_id():
+def get_tv_series_metadata_by_id():
     number = request.args.get('id')
     id = str("id" + number)
-    collection = get_or_create_collection("tv_series_rag", "l2")
+    collection = get_or_create_collection("tv_series_rag", "cosine")
     results = get_data_from_collection(collection=collection, ids=id)
 
     for key, value in results["metadatas"][0].items():
@@ -27,7 +27,7 @@ def get_movie_metadata_by_id():
 """
 comment
 """
-def get_movie_posters_and_id():
+def get_tv_series_posters_and_id():
     page = request.args.get('page')
     
     if not page:
@@ -35,7 +35,7 @@ def get_movie_posters_and_id():
     if not page.isdigit():
         abort(400, description="Page must be a number")
 
-    collection = get_or_create_collection("tv_series_rag", "l2")
+    collection = get_or_create_collection("tv_series_rag", "cosine")
     results = get_data_from_collection(collection=collection, ids=[f"id{int(page)*50 + x}" for x in range(0,50)])
     output = {id_: {"poster_path": metadata['poster_path'], "title": metadata['name']} for id_, metadata in zip(results["ids"], results["metadatas"])}
     return json.dumps(output)
@@ -49,7 +49,7 @@ def get_res_from_llm():
     if not query:
         abort(400, description="Missing query value in the request.")
     
-    get_or_create_collection("tv_series_rag", "l2") 
+    get_or_create_collection("tv_series_rag", "cosine") 
     answer_body = chatbot.invoke_llm(query)
     print(answer_body)
     response_dict = {"response": answer_body[answer_body.find('Answer:') + len('Answer:'):]}
