@@ -1,0 +1,29 @@
+<div class="modal-overlay" routerLink="/tvseries">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-button" routerLink="/tvseries">&#10005;</button>
+    <div class="scrollable-content">
+      <div class="star-rating" *ngIf="(tvSeries?.vote_average ?? 0)">
+        <div class="star filled">&#9733; {{tvSeries?.vote_average}}</div>
+        <p class="vote-count" *ngIf="(tvSeries?.vote_count ?? 0)">on {{tvSeries?.vote_count}} votes</p>
+      </div>
+      <p>Name: {{tvSeries?.name}}</p>
+      <p>Overview: {{tvSeries?.overview}}</p>
+      <p>Series status: {{tvSeries?.status}}</p>
+      <hr>
+      <p *ngIf="(tvSeries?.number_of_seasons ?? 0)">Number of seasons: {{tvSeries?.number_of_seasons}}</p>
+      <p *ngIf="(tvSeries?.number_of_episodes ?? 0)">Number of episodes: {{tvSeries?.number_of_episodes}}</p>
+      <p *ngIf="(tvSeries?.episode_run_time ?? 0)">Episode run time: {{tvSeries?.episode_run_time}} minutes</p>
+      <hr>
+      <p>Original series name: {{tvSeries?.original_name}}</p>
+      <p>Original language: {{tvSeries?.spoken_languages}}</p>
+      <hr>
+      <p>Genres: {{tvSeries?.genres}}</p>
+      <p>First air date: {{tvSeries?.first_air_date}}</p>
+      <p *ngIf="(tvSeries?.popularity ?? 0)">Popularity: {{tvSeries?.popularity}}</p>
+      <hr>
+      <p><a href="{{tvSeries?.homepage}}">Homepage</a></p>
+      <br>
+    </div>
+  </div>
+</div>
+

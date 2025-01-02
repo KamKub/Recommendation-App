@@ -1,4 +1,4 @@
-export class Movie{
+export class TVSeries{
   public id: number
   public adult: boolean
   public backdrop_path: string

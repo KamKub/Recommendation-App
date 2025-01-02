@@ -1,11 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router, RouterLink} from "@angular/router";
-import {Movie} from "../movie.model";
-import {MoviesService} from "../movies.service";
+import {TVSeries} from "../tvseries.model";
+import {TVSeriesService} from "../tvseries.service";
 import {NgClass, NgForOf, NgIf} from "@angular/common";
 
 @Component({
-  selector: 'app-movie-detail',
+  selector: 'app-tvseries-detail',
   standalone: true,
   imports: [
     RouterLink,
@@ -13,32 +13,32 @@ import {NgClass, NgForOf, NgIf} from "@angular/common";
     NgForOf,
     NgClass
   ],
-  templateUrl: './movie-detail.component.html',
-  styleUrl: './movie-detail.component.css'
+  templateUrl: './tvseries-detail.component.html',
+  styleUrl: './tvseries-detail.component.css'
 })
-export class MovieDetailComponent implements OnInit, OnDestroy{
-  movie: Movie | undefined
+export class TVSeriesDetailComponent implements OnInit, OnDestroy{
+  tvSeries: TVSeries | undefined
   id!: number
 
-  constructor(private movieService: MoviesService, private route: ActivatedRoute , private router: Router) {
+  constructor(private tvSeriesService: TVSeriesService, private route: ActivatedRoute , private router: Router) {
   }
   ngOnInit(): void {
     document.addEventListener('keydown', (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        this.router.navigate(['/movies'])
+        this.router.navigate(['/tvseries'])
       }
     })
     this.route.params
       .subscribe((params: Params) => {
         this.id = +params['id']
-        if(this.movieService.checkExistId(this.id)){
-          this.movieService.getMovieDetail(this.id).subscribe(
-            movie => {
-              this.movie = movie;
+        if(this.tvSeriesService.checkExistId(this.id)){
+          this.tvSeriesService.getTVSeriesDetail(this.id).subscribe(
+            series => {
+              this.tvSeries = series;
             })
         }
         else{
-          this.router.navigate(['/movies'])
+          this.router.navigate(['/tvseries'])
         }
       })
   }
@@ -46,7 +46,7 @@ export class MovieDetailComponent implements OnInit, OnDestroy{
   ngOnDestroy(): void {
     document.removeEventListener('keydown', (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        this.router.navigate(['/movies'])
+        this.router.navigate(['/tvseries'])
       }
     });
   }

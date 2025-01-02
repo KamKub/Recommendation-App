@@ -1,0 +1,11 @@
+chromadb==0.5.3
+Flask==3.0.3
+huggingface-hub==0.24.6
+langchain==0.2.10
+langchain_community==0.2.9
+langchain_huggingface==0.0.3
+pandas==2.2.2
+scikit_learn==1.5.1
+setuptools==70.2.0
+torch==2.4.0+cu121
+typing_extensions==4.12.2

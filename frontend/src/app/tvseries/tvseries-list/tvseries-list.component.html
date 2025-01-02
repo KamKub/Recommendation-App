@@ -1,0 +1,10 @@
+<div class="content">
+    <app-tvseries-item
+    *ngFor="let seriesItem of tvSeriesPosters"
+    [tvSeriesPoster]="seriesItem"
+    ></app-tvseries-item>
+</div>
+<div class="pagination">
+  <a (click)="onPreviousPage()" [ngStyle]="{'display': getPageNumber() > 0 ? 'flex' : 'none'}">&laquo; previous page</a>
+  <a (click)="onNextPage()" [ngStyle]="{'display': this.tvSeriesPosters.length > 0 ? 'flex' : 'none'}">next page &raquo;</a>
+</div>

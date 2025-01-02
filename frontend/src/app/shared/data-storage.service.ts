@@ -1,8 +1,8 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {map, tap} from "rxjs";
-import {MoviePoster} from "../movies/movie-poster.model";
-import {Movie} from "../movies/movie.model";
+import {TvSeriesPoster} from "../tvseries/tvseries-poster.model";
+import {TVSeries} from "../tvseries/tvseries.model";
 
 interface PosterDetails {
   poster_path: string;
@@ -23,7 +23,7 @@ export class DataStorageService{
           return Object.keys(posters).map(key => {
             const id = parseInt(key.replace('id', ''), 10);
             const details = posters[key];
-            return new MoviePoster(id, details.title, details.poster_path);
+            return new TvSeriesPoster(id, details.title, details.poster_path);
           });
         }),
         tap(posters => {
@@ -32,15 +32,15 @@ export class DataStorageService{
       )
   }
 
-  getMovieDetails(movieId: number) {
-    return this.http.get<Movie>('api/tv_series_details', {
+  getTVSeriesDetails(tvSeriesId: number) {
+    return this.http.get<TVSeries>('api/tv_series_details', {
       params: {
-        id: movieId
+        id: tvSeriesId
       }
     })
       .pipe(
-      map(movie => {
-        return movie
+      map(tvSeries => {
+        return tvSeries
       })
     )
   }

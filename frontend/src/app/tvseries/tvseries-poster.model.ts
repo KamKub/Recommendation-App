@@ -1,4 +1,4 @@
-export class MoviePoster{
+export class TvSeriesPoster{
   public id: number;
   public name: string;
   public poster_path: string;
